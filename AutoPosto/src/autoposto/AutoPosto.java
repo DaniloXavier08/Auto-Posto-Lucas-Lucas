@@ -7,16 +7,21 @@
  */
 
 package autoposto;
+import GUI.FramePrincipal;
 
 /**
  * Danilo  - 162007X
  * William - 1620444
  */
+
 public class AutoPosto {
 
     
     public static void main(String[] args) {
-        // Nothing yet.
+        // Inicia Tela Inicial.
+        FramePrincipal fp = new FramePrincipal();
+        fp.setVisible(true);
+        
     }
     
 }
