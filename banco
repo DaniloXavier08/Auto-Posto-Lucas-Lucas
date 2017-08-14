@@ -1,0 +1,38 @@
+/* BANCO DE DADOS AutoPosto LUCAS & LUCAS*/
+
+/* Exclusão das tabelas já já existirem. */
+DROP TABLE IF EXISTS bomba CASCADE;
+DROP TABLE IF EXISTS combustivel CASCADE;
+DROP TABLE IF EXISTS controle CASCADE;
+
+/* Criação das tabelas. */
+CREATE TABLE bomba(
+    cod SERIAL,
+    descricao varchar(20),
+    ultima_atualizacao time,
+    PRIMARY KEY (cod)
+);  
+
+CREATE TABLE combustivel(
+    cod SERIAL,
+    descricao varchar(20),
+    valor float,
+    PRIMARY KEY (cod)
+);
+
+CREATE TABLE controle(
+    cod SERIAL,
+    bomba int,
+    combustivel int,
+    horario time,
+    PRIMARY KEY (cod),
+    FOREIGN KEY (bomba) REFERENCES bomba(cod),
+    FOREIGN KEY (combustivel) REFERENCES combustivel(cod)
+);
+
+/* Insert. */
+
+INSERT INTO combustivel VALUES (default, 'Álcool', 2.5);
+INSERT INTO combustivel VALUES (default, 'Gasolina', 3.5);
+INSERT INTO combustivel VALUES (default, 'Diesel', 3.0);
+
