@@ -52,21 +52,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Atualizar Valores"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAtualizarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="bCombustivel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Combust&#xed;vel"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCombustivelActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="bRelatorio">
       <Properties>
         <Property name="text" type="java.lang.String" value="Relat&#xf3;rio"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bRelatorioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="bTeste">
       <Properties>
         <Property name="text" type="java.lang.String" value="Teste (GAS/ALC)"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bTesteActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="bControle">
       <Properties>

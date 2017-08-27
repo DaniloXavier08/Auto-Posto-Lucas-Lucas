@@ -5,19 +5,21 @@
  */
 package GUI;
 
-import javax.swing.JPanel;
-
 /**
- *
- * @author a162007X
+ * 
+ * @author danil
  */
 public class OptionsPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form OptionsPanel
-     */
+    private FramePrincipal frame;
+    
     public OptionsPanel() {
         initComponents();
+    }
+    
+    public OptionsPanel(FramePrincipal frame){
+        initComponents();
+        this.frame =  frame;
     }
 
     /**
@@ -36,12 +38,32 @@ public class OptionsPanel extends javax.swing.JPanel {
         bControle = new javax.swing.JToggleButton();
 
         bAtualizar.setText("Atualizar Valores");
+        bAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAtualizarActionPerformed(evt);
+            }
+        });
 
         bCombustivel.setText("Combustível");
+        bCombustivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCombustivelActionPerformed(evt);
+            }
+        });
 
         bRelatorio.setText("Relatório");
+        bRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRelatorioActionPerformed(evt);
+            }
+        });
 
         bTeste.setText("Teste (GAS/ALC)");
+        bTeste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTesteActionPerformed(evt);
+            }
+        });
 
         bControle.setText("Controle Bomba");
         bControle.addActionListener(new java.awt.event.ActionListener() {
@@ -83,10 +105,33 @@ public class OptionsPanel extends javax.swing.JPanel {
 
     private void bControleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bControleActionPerformed
         // chamar tela de controle
-        JPanel controlePanel = new JPanel();
-        FramePrincipal fp = new FramePrincipal();
-        fp.setContentPane(controlePanel);
+        ControlePanel co = new ControlePanel();
+        frame.setPanel(co);
     }//GEN-LAST:event_bControleActionPerformed
+
+    private void bCombustivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCombustivelActionPerformed
+        // chama tela de Combustivel
+        CombustivelPanel cb = new CombustivelPanel();
+        frame.setPanel(cb);
+    }//GEN-LAST:event_bCombustivelActionPerformed
+
+    private void bAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarActionPerformed
+        // chama tela de atualizar valores dos combustíveis
+        ValorCombustivelPanel va = new ValorCombustivelPanel();
+        frame.setPanel(va);
+    }//GEN-LAST:event_bAtualizarActionPerformed
+
+    private void bTesteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTesteActionPerformed
+        // chama tela de teste
+        TestePanel te = new TestePanel();
+        frame.setPanel(te);
+    }//GEN-LAST:event_bTesteActionPerformed
+
+    private void bRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRelatorioActionPerformed
+        // Chama a tela de Relatório
+        RelatorioPanel rp = new RelatorioPanel();
+        frame.setPanel(rp);
+    }//GEN-LAST:event_bRelatorioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
