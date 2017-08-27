@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author a162007X
+ * @author 
  */
 public class FramePrincipal extends javax.swing.JFrame {
 
@@ -43,7 +43,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Monotxt_IV50", 1, 11)); // NOI18N
         jLabel1.setText("AUTO POSTO");
 
-        jLabel2.setFont(new java.awt.Font("Edwardian Script ITC", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
         jLabel2.setText("Lucas & Lucas");
 
         bEntrar.setText("Entrar");
@@ -57,27 +57,27 @@ public class FramePrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bEntrar))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
+                        .addGap(78, 78, 78)
                         .addComponent(jLabel1)))
-                .addContainerGap(197, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(bEntrar))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
                 .addComponent(bEntrar)
                 .addContainerGap())
         );
@@ -87,7 +87,9 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     private void bEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEntrarActionPerformed
         // Chama a tela Options;
-
+        JPanel optionsPanel = new JPanel();
+        this.setContentPane(optionsPanel);
+        
     }//GEN-LAST:event_bEntrarActionPerformed
 
     /**
