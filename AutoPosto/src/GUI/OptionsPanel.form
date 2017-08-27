@@ -20,10 +20,10 @@
               <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="bAtualizar" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jToggleButton4" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jToggleButton1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jToggleButton3" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jToggleButton2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="bControle" alignment="0" max="32767" attributes="0"/>
+                  <Component id="bCombustivel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="bTeste" alignment="0" max="32767" attributes="0"/>
+                  <Component id="bRelatorio" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="145" max="32767" attributes="0"/>
           </Group>
@@ -33,15 +33,15 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-              <Component id="jToggleButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="bCombustivel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jToggleButton4" min="-2" max="-2" attributes="0"/>
+              <Component id="bControle" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="bAtualizar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jToggleButton3" min="-2" max="-2" attributes="0"/>
+              <Component id="bTeste" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jToggleButton2" min="-2" max="-2" attributes="0"/>
+              <Component id="bRelatorio" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="82" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -53,25 +53,28 @@
         <Property name="text" type="java.lang.String" value="Atualizar Valores"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+    <Component class="javax.swing.JToggleButton" name="bCombustivel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Combust&#xed;vel"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton2">
+    <Component class="javax.swing.JToggleButton" name="bRelatorio">
       <Properties>
         <Property name="text" type="java.lang.String" value="Relat&#xf3;rio"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton3">
+    <Component class="javax.swing.JToggleButton" name="bTeste">
       <Properties>
         <Property name="text" type="java.lang.String" value="Teste (GAS/ALC)"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton4">
+    <Component class="javax.swing.JToggleButton" name="bControle">
       <Properties>
         <Property name="text" type="java.lang.String" value="Controle Bomba"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bControleActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

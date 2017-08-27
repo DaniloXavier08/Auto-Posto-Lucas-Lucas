@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author a162007X
@@ -28,20 +30,25 @@ public class OptionsPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         bAtualizar = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
+        bCombustivel = new javax.swing.JToggleButton();
+        bRelatorio = new javax.swing.JToggleButton();
+        bTeste = new javax.swing.JToggleButton();
+        bControle = new javax.swing.JToggleButton();
 
         bAtualizar.setText("Atualizar Valores");
 
-        jToggleButton1.setText("Combustível");
+        bCombustivel.setText("Combustível");
 
-        jToggleButton2.setText("Relatório");
+        bRelatorio.setText("Relatório");
 
-        jToggleButton3.setText("Teste (GAS/ALC)");
+        bTeste.setText("Teste (GAS/ALC)");
 
-        jToggleButton4.setText("Controle Bomba");
+        bControle.setText("Controle Bomba");
+        bControle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bControleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -51,35 +58,42 @@ public class OptionsPanel extends javax.swing.JPanel {
                 .addGap(142, 142, 142)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bControle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bCombustivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bTeste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(145, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(79, 79, 79)
-                .addComponent(jToggleButton1)
+                .addComponent(bCombustivel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton4)
+                .addComponent(bControle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bAtualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton3)
+                .addComponent(bTeste)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton2)
+                .addComponent(bRelatorio)
                 .addContainerGap(82, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bControleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bControleActionPerformed
+        // chamar tela de controle
+        JPanel controlePanel = new JPanel();
+        FramePrincipal fp = new FramePrincipal();
+        fp.setContentPane(controlePanel);
+    }//GEN-LAST:event_bControleActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAtualizar;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
+    private javax.swing.JToggleButton bCombustivel;
+    private javax.swing.JToggleButton bControle;
+    private javax.swing.JToggleButton bRelatorio;
+    private javax.swing.JToggleButton bTeste;
     // End of variables declaration//GEN-END:variables
 }
