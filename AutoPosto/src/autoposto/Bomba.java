@@ -13,6 +13,12 @@ public class Bomba {
     private int status;
     private String horario; // horário de atualização
     
+    public Bomba(int cod, String desc, int status, String hora){
+        this.cod = cod;
+        this.descricao = desc;
+        this.status = status;
+        this.horario = horario;
+    }
     // Getters e Setters
 
     public int getCod() {

@@ -13,7 +13,7 @@ public class Controle {
     private int bomba;
     private int combustivel;
     private String horario; // ** UTILIZAR VARIAVEL DE TEMPO CORRETA**
-    
+       
     // Getter e Setter
 
     public int getCod() {
