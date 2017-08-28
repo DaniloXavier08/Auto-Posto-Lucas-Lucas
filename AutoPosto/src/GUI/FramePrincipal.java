@@ -1,25 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
 import javax.swing.JPanel;
 
 /**
- *
+ * Frame Principal da interface gráfica.
  * @author 
  */
 public class FramePrincipal extends javax.swing.JFrame {
-
+    // Exemplo de herança. A classe FramePrincipal herda caracteristicas da classe java.swing.JFrame
   
     public FramePrincipal() {
         initComponents();
     }
-
-    public void setPanel(JPanel pane){
-        this.setContentPane(pane);
+    /**
+     * Define o JPanel a ser mostrado atavés da Frame Principal.
+     * @param panel
+     */
+    public void setPanel(JPanel panel){
+        this.setContentPane(panel);
         this.validate();
     }
     /**
@@ -90,8 +88,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     private void bEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEntrarActionPerformed
         // Chama a tela Options;
-        JPanel optionsPanel = new JPanel();
-        this.setPanel(optionsPanel);
+        this.setPanel(new OptionsPanel(this));
     }//GEN-LAST:event_bEntrarActionPerformed
 
     /**
