@@ -11,15 +11,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author danil
- * 
  * Manipulação de dados no Banco de Dados através
  * da classe BancoDados
  */
 public class ControleDAO {
     
-    // Adicionar dados na tabela controle
+    /**
+     * Adiciona dados na tabela controle através de um SQL
+     * @param Object Controle 
+     */
     public void adicionarDadosControle(Controle c){
         Connection con = BancoDados.iniciarConexao();
         PreparedStatement stm = null;
@@ -39,7 +39,10 @@ public class ControleDAO {
         BancoDados.fecharConexao(con, stm);
     }
     
-    // Remover dados da tabela controle
+    /**
+     * Remove dados da tabela Controle através de um SQL.
+     * @param Object Controle 
+     */
     public void removerDadosControle(Controle c){
         Connection con = BancoDados.iniciarConexao();
             PreparedStatement stm = null;
@@ -55,7 +58,10 @@ public class ControleDAO {
             BancoDados.fecharConexao(con,stm);
     }
     
-    // Listar dados relativos a tabela controle
+    /**
+     * Lista dados relativos a tabela controle através de um SQL.
+     * @return ListaControle
+     */
     public List lerEstoque(){
         Connection con = BancoDados.iniciarConexao();
         PreparedStatement stm = null;

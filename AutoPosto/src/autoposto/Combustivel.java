@@ -1,10 +1,6 @@
 
 package autoposto;
 
-/**
- *
- * @author danilo
- */
 public class Combustivel {
     
     // Variaveis 
@@ -12,8 +8,18 @@ public class Combustivel {
     private String descricao; // nome do combustivel
     private float valor;
     
+    /**
+     * Este é o método construtor da classe Combustivel.
+     * Deve-se entrar com a descrição do combustível e seu valor.
+     * @param descricao
+     * @param valor 
+     */
+    public Combustivel(String descricao, float valor){
+        this.descricao = descricao;
+        this.valor = valor;
+    }
+    
     // getter e setter
-
     public int getCod() {
         return cod;
     }
