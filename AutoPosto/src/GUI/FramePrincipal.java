@@ -37,6 +37,8 @@ public class FramePrincipal extends javax.swing.JFrame {
         jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("AutoPosto - Lucas&Lucas");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Monotxt_IV50", 1, 11)); // NOI18N
         jLabel1.setText("AUTO POSTO");
@@ -84,6 +86,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void bEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEntrarActionPerformed

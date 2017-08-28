@@ -1,22 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
 /**
- * 
- * @author danil
+ * Painel responsável pela tela de opções que será o meio de transporte entre as demais telas
+ * @author danilo
  */
 public class OptionsPanel extends javax.swing.JPanel {
+    //Exemplo de herança onde OptionsPanel herda caracteristicas da classe javax.swing.JPanel
 
-    private FramePrincipal frame;
+    private final FramePrincipal frame;
     
-    public OptionsPanel() {
-        initComponents();
-    }
-    
+    /**
+     * Método construtor
+     * @param frame 
+     */
     public OptionsPanel(FramePrincipal frame){
         initComponents();
         this.frame =  frame;
@@ -32,7 +28,6 @@ public class OptionsPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         bAtualizar = new javax.swing.JButton();
-        bCombustivel = new javax.swing.JToggleButton();
         bRelatorio = new javax.swing.JToggleButton();
         bTeste = new javax.swing.JToggleButton();
         bControle = new javax.swing.JToggleButton();
@@ -41,13 +36,6 @@ public class OptionsPanel extends javax.swing.JPanel {
         bAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAtualizarActionPerformed(evt);
-            }
-        });
-
-        bCombustivel.setText("Combustível");
-        bCombustivel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bCombustivelActionPerformed(evt);
             }
         });
 
@@ -81,7 +69,6 @@ public class OptionsPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bControle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bCombustivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bTeste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(145, Short.MAX_VALUE))
@@ -89,9 +76,7 @@ public class OptionsPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(bCombustivel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(108, 108, 108)
                 .addComponent(bControle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bAtualizar)
@@ -105,38 +90,27 @@ public class OptionsPanel extends javax.swing.JPanel {
 
     private void bControleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bControleActionPerformed
         // chamar tela de controle
-        ControlePanel co = new ControlePanel();
-        frame.setPanel(co);
+        frame.setPanel(new ControlePanel(frame));
     }//GEN-LAST:event_bControleActionPerformed
-
-    private void bCombustivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCombustivelActionPerformed
-        // chama tela de Combustivel
-        CombustivelPanel cb = new CombustivelPanel();
-        frame.setPanel(cb);
-    }//GEN-LAST:event_bCombustivelActionPerformed
 
     private void bAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarActionPerformed
         // chama tela de atualizar valores dos combustíveis
-        ValorCombustivelPanel va = new ValorCombustivelPanel();
-        frame.setPanel(va);
+        frame.setPanel(new CombustivelPanel(frame));
     }//GEN-LAST:event_bAtualizarActionPerformed
 
     private void bTesteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTesteActionPerformed
         // chama tela de teste
-        TestePanel te = new TestePanel();
-        frame.setPanel(te);
+        frame.setPanel(new TestePanel(frame));
     }//GEN-LAST:event_bTesteActionPerformed
 
     private void bRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRelatorioActionPerformed
-        // Chama a tela de Relatório
-        RelatorioPanel rp = new RelatorioPanel();
-        frame.setPanel(rp);
+        // Torna o painel RelatorioPanel visivel.
+        frame.setPanel(new RelatorioPanel(frame));
     }//GEN-LAST:event_bRelatorioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAtualizar;
-    private javax.swing.JToggleButton bCombustivel;
     private javax.swing.JToggleButton bControle;
     private javax.swing.JToggleButton bRelatorio;
     private javax.swing.JToggleButton bTeste;

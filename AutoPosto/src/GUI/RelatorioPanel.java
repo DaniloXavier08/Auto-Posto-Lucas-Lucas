@@ -11,11 +11,15 @@ package GUI;
  */
 public class RelatorioPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form RelatorioPanel
-     */
+    private FramePrincipal frame;
+    
     public RelatorioPanel() {
         initComponents();
+    }
+    
+    public RelatorioPanel(FramePrincipal frame){
+        initComponents();
+        this.frame = frame;
     }
 
     /**
@@ -27,35 +31,14 @@ public class RelatorioPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lEtanol = new javax.swing.JLabel();
-        lCifrao1 = new javax.swing.JLabel();
-        tValorEtanol = new javax.swing.JLabel();
-        tValorGasolina = new javax.swing.JLabel();
-        lCifrao2 = new javax.swing.JLabel();
-        lGasolina = new javax.swing.JLabel();
-        lResultado = new javax.swing.JLabel();
-        bOk = new javax.swing.JToggleButton();
-        bVoltar = new javax.swing.JToggleButton();
-
-        lEtanol.setText("ETANOL");
-
-        lCifrao1.setText("R$");
-
-        tValorEtanol.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        tValorEtanol.setText("0,00");
-
-        tValorGasolina.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        tValorGasolina.setText("0,00");
-
-        lCifrao2.setText("R$");
-
-        lGasolina.setText("GASOLINA");
-
-        lResultado.setText("RESULTADO:");
-
-        bOk.setText("OK");
+        bVoltar = new javax.swing.JButton();
 
         bVoltar.setText("Voltar");
+        bVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -63,63 +46,25 @@ public class RelatorioPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 99, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lResultado)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lGasolina)
-                                .addGap(21, 21, 21)
-                                .addComponent(lCifrao2)
-                                .addGap(18, 18, 18)
-                                .addComponent(tValorGasolina, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lEtanol)
-                                .addGap(33, 33, 33)
-                                .addComponent(lCifrao1)
-                                .addGap(18, 18, 18)
-                                .addComponent(tValorEtanol, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(113, 113, 113))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(bVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bOk)
-                        .addContainerGap())))
+                .addComponent(bVoltar)
+                .addContainerGap(329, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lEtanol)
-                    .addComponent(lCifrao1)
-                    .addComponent(tValorEtanol))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lGasolina)
-                    .addComponent(lCifrao2)
-                    .addComponent(tValorGasolina))
-                .addGap(42, 42, 42)
-                .addComponent(lResultado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bOk)
-                    .addComponent(bVoltar))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(266, Short.MAX_VALUE)
+                .addComponent(bVoltar)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
+        // Voltar tela de opções
+        frame.setPanel(new OptionsPanel(frame));
+    }//GEN-LAST:event_bVoltarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton bOk;
-    private javax.swing.JToggleButton bVoltar;
-    private javax.swing.JLabel lCifrao1;
-    private javax.swing.JLabel lCifrao2;
-    private javax.swing.JLabel lEtanol;
-    private javax.swing.JLabel lGasolina;
-    private javax.swing.JLabel lResultado;
-    private javax.swing.JLabel tValorEtanol;
-    private javax.swing.JLabel tValorGasolina;
+    private javax.swing.JButton bVoltar;
     // End of variables declaration//GEN-END:variables
 }

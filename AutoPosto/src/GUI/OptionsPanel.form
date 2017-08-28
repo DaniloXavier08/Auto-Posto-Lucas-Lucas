@@ -21,7 +21,6 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="bAtualizar" alignment="0" max="32767" attributes="0"/>
                   <Component id="bControle" alignment="0" max="32767" attributes="0"/>
-                  <Component id="bCombustivel" alignment="0" max="32767" attributes="0"/>
                   <Component id="bTeste" alignment="0" max="32767" attributes="0"/>
                   <Component id="bRelatorio" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -32,9 +31,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-              <Component id="bCombustivel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
               <Component id="bControle" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="bAtualizar" min="-2" max="-2" attributes="0"/>
@@ -54,14 +51,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAtualizarActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JToggleButton" name="bCombustivel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Combust&#xed;vel"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCombustivelActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="bRelatorio">

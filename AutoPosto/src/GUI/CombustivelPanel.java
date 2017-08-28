@@ -1,22 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package GUI;
 
-/**
- *
- * @author danil
- */
+import autoposto.Combustivel;
+import javax.swing.JOptionPane;
+
 public class CombustivelPanel extends javax.swing.JPanel {
 
-    FramePrincipal frame;
+    private FramePrincipal frame;
+    
+    
     public CombustivelPanel() {
         initComponents();
     }
     
-    
+    /**
+     * Metódo construtor classe CombustivelPanel.
+     * @param frame 
+     */
+    public CombustivelPanel(FramePrincipal frame){
+        initComponents();
+        this.frame = frame;
+    }
+
+    /**
+     * Recebe um objeto Combustivel e realiza a chamada de um JOptionPane para definir o valor do combustível.
+     * @param Object Combustivel
+     */
+    private void alterarValor(Combustivel c) {
+        float valor = 0;
+        while ( valor == 0) {
+            valor = Float.parseFloat(JOptionPane.showInputDialog("Alterar o valor "+c.getDescricao()+":"));
+            if (valor == 0) {
+                JOptionPane.showMessageDialog(null, "Valor não preenchido.");
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
+        c.setValor(valor);        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,21 +158,24 @@ public class CombustivelPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        // Volta na tela de opções
-        OptionsPanel op = new OptionsPanel();
-        frame.setPanel(op);
+        // Voltar tela de opções
+        frame.setPanel(new OptionsPanel(frame));
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void bDieselActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDieselActionPerformed
         // Abre o JOption para alterar o valor do Diesel
+        this.alterarValor(new Combustivel("Diesel",0));
     }//GEN-LAST:event_bDieselActionPerformed
 
     private void bEtanolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEtanolActionPerformed
         // Abre o JOption para alterar o valor do Etanol
+        this.alterarValor(new Combustivel("Etanol", 0));
     }//GEN-LAST:event_bEtanolActionPerformed
 
     private void bGasolinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGasolinaActionPerformed
         // Abre o JOption para alterar o valor da Gasolina
+        Combustivel c = new Combustivel("Gasolina",0);
+        this.alterarValor(c);
     }//GEN-LAST:event_bGasolinaActionPerformed
 
 
