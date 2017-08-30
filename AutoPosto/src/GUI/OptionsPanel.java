@@ -10,12 +10,13 @@ public class OptionsPanel extends javax.swing.JPanel {
     private final FramePrincipal frame;
     
     /**
-     * Método construtor
-     * @param frame 
+     * Método construtor que será tornará a tela OptionsPane visível.
+     * 
+     * @param framePrincipal estancia da Frame Principal;
      */
-    public OptionsPanel(FramePrincipal frame){
+    public OptionsPanel(FramePrincipal framePrincipal){
         initComponents();
-        this.frame =  frame;
+        this.frame =  framePrincipal;
     }
 
     /**

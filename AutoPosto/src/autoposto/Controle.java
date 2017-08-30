@@ -1,6 +1,8 @@
 
 package autoposto;
 
+import java.sql.Date;
+
 /**
  *
  * @author danilo
@@ -12,7 +14,7 @@ public class Controle {
     private int cod;
     private int bomba;
     private int combustivel;
-    private String horario; // ** UTILIZAR VARIAVEL DE TEMPO CORRETA**
+    private Date horario;
        
     // Getter e Setter
 
@@ -40,11 +42,11 @@ public class Controle {
         this.combustivel = combustivel;
     }
 
-    public String getHorario() {
+    public Date getHorario() {
         return horario;
     }
 
-    public void setHorario(String horario) {
+    public void setHorario(Date horario) {
         this.horario = horario;
     }
     

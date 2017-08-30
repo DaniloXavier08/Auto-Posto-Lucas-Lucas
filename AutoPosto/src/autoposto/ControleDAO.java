@@ -18,18 +18,18 @@ public class ControleDAO {
     
     /**
      * Adiciona dados na tabela controle através de um SQL
-     * @param Object Controle 
+     * @param controle objeto do tipo Controle que instancie a classe Controle.
      */
-    public void adicionarDadosControle(Controle c){
+    public void adicionarDadosControle(Controle controle){
         Connection con = BancoDados.iniciarConexao();
         PreparedStatement stm = null;
         try {
             // Pedido
             stm = con.prepareStatement("INSERT INTO controle VALUES (default,?,?,?)");
                        
-            stm.setInt(1, c.getBomba());
-            stm.setInt(2, c.getCombustivel());
-            stm.setString(3, c.getHorario());
+            stm.setInt(1, controle.getBomba());
+            stm.setInt(2, controle.getCombustivel());
+            stm.setDate(3, controle.getHorario());
             
             stm.executeUpdate();
 
@@ -41,7 +41,7 @@ public class ControleDAO {
     
     /**
      * Remove dados da tabela Controle através de um SQL.
-     * @param Object Controle 
+     * @param c Controle 
      */
     public void removerDadosControle(Controle c){
         Connection con = BancoDados.iniciarConexao();
@@ -81,7 +81,7 @@ public class ControleDAO {
                 c.setCod(rs.getInt("cod"));
                 c.setBomba(rs.getInt("bomba"));
                 c.setCombustivel(rs.getInt("combustivel"));
-                c.setHorario(rs.getString("horario"));
+                c.setHorario(rs.getDate("horario"));
                 
                 // Adiciona elemento na lista
                 listaControle.add(c);
