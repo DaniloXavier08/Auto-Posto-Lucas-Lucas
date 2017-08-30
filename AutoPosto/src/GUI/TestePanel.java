@@ -5,12 +5,16 @@
  */
 package GUI;
 
+import autoposto.Teste;
+import java.awt.Color;
+
 /**
- *
- * @author danil
+ * Panel responsável pela tela TestePanel
+ * 
  */
 public class TestePanel extends javax.swing.JPanel {
-
+    // exemplo de herança onde TestePanel herda características da classe javax.swing.JPanel
+    
     private FramePrincipal frame;
     
     public TestePanel(FramePrincipal frame) {
@@ -54,6 +58,11 @@ public class TestePanel extends javax.swing.JPanel {
         lResultado.setText("RESULTADO:");
 
         bOk.setText("OK");
+        bOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bOkActionPerformed(evt);
+            }
+        });
 
         bVoltar.setText("Voltar");
         bVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -114,11 +123,24 @@ public class TestePanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         // Voltar tela de opções
-        frame.setPanel(new OptionsPanel(frame));
+        frame.setPanel(new OptionsPanel(frame));        
     }//GEN-LAST:event_bVoltarActionPerformed
+
+    private void bOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOkActionPerformed
+        // Mostrar resultado do teste
+        Teste teste = new Teste(1.3, 2.5);
+        String resultado = teste.resultado();
+        if(resultado.equals("#Erro")){
+            resultado = "Valores Incorretos!! Tente novamente";
+            lResultado.setForeground(Color.red);
+        }else {
+            resultado = lResultado.getText() + " Combustível a ser abastecido: " +resultado;
+        }
+        lResultado.setText(resultado);
+    }//GEN-LAST:event_bOkActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

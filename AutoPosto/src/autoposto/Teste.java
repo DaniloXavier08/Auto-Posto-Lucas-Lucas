@@ -2,7 +2,6 @@
 package autoposto;
 
 /**
- *
  * @author danilo
  * 
  * Essa classe tem como objeto realizar uma equação para
@@ -13,16 +12,31 @@ public class Teste {
     
     private float relacao;
     
-    // Cálculo da relação entre álcool dividido por gasolina.
-    public String calcular (float alcool, float gasolina){
-        relacao = alcool / gasolina;
+    /**
+     * Métoo construtor que define os valores dos combustiveis que serão computados.
+     * @param alcool
+     * @param gasolina
+     */
+    public Teste (double alcool, double gasolina){
+        relacao = (float) (alcool / gasolina);
+    }
+    /**
+     * Calcula qual combustível compensa abastecer entre Álcool e Gasolina.
+     * Retorna uma string com o nome do combustível a ser abastecido.
+     * @return Combustível a ser abastecido
+     */
+    public String resultado(){
+        // Exemplo de Método
+        String resultado;
         
         if (relacao >= 0.7){
-            return "Gasolina";
+            resultado = "Gasolina";
         }
         else if(relacao < 0.7 && relacao >= 0){
-            return "Álcool";
+            resultado = "Álcool";
         }
-        else return "#ERRO";
+        else resultado = "#ERRO";
+        
+        return resultado;
     }
 }
