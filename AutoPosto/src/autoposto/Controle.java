@@ -11,6 +11,8 @@ import java.sql.Date;
  * serão inseridos pelo Controle no Banco de Dados
  */
 public class Controle {
+    
+    // Este é um exemplo de Absração
     private int cod;
     private int bomba;
     private int combustivel;

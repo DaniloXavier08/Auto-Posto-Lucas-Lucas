@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,6 +13,9 @@ public class CombustivelDAO extends InterfaceDAO {
     //Variável
     Combustivel combustivel;
 
+    public CombustivelDAO(){
+        // Método para apenas obter a Lista
+    }
     /**
      * Método construtror
      * @param combustivel
@@ -84,13 +86,13 @@ public class CombustivelDAO extends InterfaceDAO {
     }
 
     @Override
-    public List obterLista() {
+    public ArrayList obterLista() {
         Connection con = BancoDados.iniciarConexao();
         PreparedStatement stm = null;
         ResultSet rs = null;
 
         // Lista de objetos Controle
-        List<Combustivel> listaCombustivel = new ArrayList<>();
+        ArrayList<Combustivel> listaCombustivel = new ArrayList<>();
 
         try {
             // pedido

@@ -24,7 +24,10 @@ public class BancoDados {
     private static final String USER = "postgres";
     private static final String PASS = "postgres"; // alterar senha e usuário conforme plataforma e/ou usuário
 
-    // Iniciar a conexão com o Banco de Dados
+    /**
+     * Inicia a conexão com o Banco de Dados
+     * @return Connection
+     */
     public static Connection iniciarConexao() {
         try {
             Class.forName(DRIVER);
@@ -34,7 +37,10 @@ public class BancoDados {
         }
     }
 
-    // Fechar conexão - Variável Connection
+    /**
+     * Fecha a conexão
+     * @param con 
+     */
     public static void fecharConexao(Connection con) {
         try {
             if (con != null) {
@@ -46,8 +52,11 @@ public class BancoDados {
         }
     }
 
-    // Fechar conexão - Variável Connection e PreparedStatement
-    // Será usada apenas quando PreparedStatement for iniciado
+    /**
+     * Fechar Conexão usada quando PreparedStatement for iniciado
+     * @param con Connection
+     * @param stm PreparedStatement
+     */
     public static void fecharConexao(Connection con, PreparedStatement stm) {
         fecharConexao(con);
         try {
@@ -59,9 +68,14 @@ public class BancoDados {
             );
         }
     }
-
-    // Fechar conexão - Variável Connection, PreparedStatement e RestultSet
-    // Será usada apenas quando PreparedStatement e ResultSet for iniciado
+    
+    /**
+     * Fechar conexão
+     * Usar quandovariáveis PreparedStatement e ResultSet for iniciadas.
+     * @param con Connection
+     * @param stm PreparedStatement
+     * @param rs ResultSet
+     */
     public static void fecharConexao(Connection con, PreparedStatement stm, ResultSet rs) {
         fecharConexao(con, stm);
         try {
