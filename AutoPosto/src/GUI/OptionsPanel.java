@@ -1,11 +1,13 @@
 package GUI;
 
 /**
- * Painel responsável pela tela de opções que será o meio de transporte entre as demais telas
+ * Painel responsável pela tela de opções que será o meio de transporte entre
+ * as demais telas
  * @author danilo
  */
 public class OptionsPanel extends javax.swing.JPanel {
-    //Exemplo de herança onde OptionsPanel herda caracteristicas da classe javax.swing.JPanel
+    // Exemplo de herança onde OptionsPanel herda caracteristicas da classe 
+    // javax.swing.JPanel
 
     private final FramePrincipal frame;
     

@@ -1,31 +1,23 @@
 
 package autoposto;
 
+/**
+ * Este é um exemplo de Classe
+ */
 public class Combustivel {
     
-    // Variaveis 
-    private int cod;
-    private String descricao; // nome do combustivel
-    private float valor;
+    // Variaveis
+    protected int cod; 
+    protected String descricao; // nome do combustivel
+    protected float valor;
     
-    /**
-     * Este é o método construtor da classe Combustivel.
-     * Deve-se entrar com a descrição do combustível e seu valor.
-     * @param descricao
-     * @param valor 
-     */
-    public Combustivel(String descricao, float valor){
-        this.descricao = descricao;
-        this.valor = valor;
-    }
-    
-    // getter e setter
+    // Exemplo de Métodos
     public int getCod() {
-        return cod;
+        return cod; // Método com retorno
     }
 
     public void setCod(int cod) {
-        this.cod = cod;
+        this.cod = cod; // Método sem retorno do tipo void
     }
 
     public String getDescricao() {

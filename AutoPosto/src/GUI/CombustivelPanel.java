@@ -2,14 +2,15 @@
 package GUI;
 
 import autoposto.Combustivel;
-import autoposto.CombustivelDAO;
-import java.util.ArrayList;
+import autoposto.Diesel;
+import autoposto.Etanol;
+import autoposto.Gasolina;
 import javax.swing.JOptionPane;
 
 public class CombustivelPanel extends javax.swing.JPanel {
 
     private final FramePrincipal frame;
-    private final ArrayList<Combustivel> listaCombustivel;
+    private final Combustivel etanol, diesel, gasolina;
     
     /**
      * Metódo construtor classe CombustivelPanel.
@@ -19,19 +20,24 @@ public class CombustivelPanel extends javax.swing.JPanel {
         initComponents();
         this.frame = frame;
         
-        CombustivelDAO comb = new CombustivelDAO();
-        listaCombustivel = comb.obterLista();
+        diesel = new Diesel();
+        etanol = new Etanol();
+        gasolina = new Gasolina();
+        
+        carregarValores();
     }
     
     public void carregarValores(){
-        tValorEtanol.setText(listaCombustivel.get(1).getDescricao());
+        tValorDiesel.setText(Float.toString(diesel.getValor()));
+        tValorEtanol.setText(Float.toString(etanol.getValor()));
+        tValorGasolina.setText(Float.toString(gasolina.getValor()));
     }
 
     /**
      * Recebe um objeto Combustivel e realiza a chamada de um JOptionPane para definir o valor do combustível.
      * @param Object Combustivel
      */
-    private float alterarValor(Combustivel comb) {
+    private void alterarValor(Combustivel comb) {
         float valor = 0;
         while ( valor == 0) {
             valor = Float.parseFloat(JOptionPane.showInputDialog("Alterar o valor "+comb.getDescricao()+":"));
@@ -40,7 +46,7 @@ public class CombustivelPanel extends javax.swing.JPanel {
             }
         }
         JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
-        return valor;
+        comb.setValor(valor);
     }
 
     /**
@@ -169,17 +175,20 @@ public class CombustivelPanel extends javax.swing.JPanel {
 
     private void bDieselActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDieselActionPerformed
         // Abre o JOption para alterar o valor do Diesel (index = 1)
-        listaCombustivel.get(1).setValor(this.alterarValor(listaCombustivel.get(1)));
+        alterarValor(diesel);
+        carregarValores();
     }//GEN-LAST:event_bDieselActionPerformed
 
     private void bEtanolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEtanolActionPerformed
         // Abre o JOption para alterar o valor do Etanol (index = 2)
-        listaCombustivel.get(2).setValor(this.alterarValor(listaCombustivel.get(2)));
+        alterarValor(etanol);
+        carregarValores();
     }//GEN-LAST:event_bEtanolActionPerformed
 
     private void bGasolinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGasolinaActionPerformed
         // Abre o JOption para alterar o valor da Gasolina (index = 3)
-        listaCombustivel.get(3).setValor(this.alterarValor(listaCombustivel.get(3)));
+        alterarValor(gasolina);
+        carregarValores();
     }//GEN-LAST:event_bGasolinaActionPerformed
 
 

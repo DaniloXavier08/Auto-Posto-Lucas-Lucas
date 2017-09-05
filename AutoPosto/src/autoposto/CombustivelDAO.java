@@ -100,7 +100,8 @@ public class CombustivelDAO extends InterfaceDAO {
             rs = stm.executeQuery();
             while (rs.next()) {
                 
-                combustivel = new Combustivel(rs.getString("descricao"), rs.getFloat("valor"));
+                combustivel.setDescricao(rs.getString("descricao"));
+                combustivel.setValor(rs.getFloat("valor"));
                 combustivel.setCod(rs.getInt("cod"));
                 
                 // Adiciona elemento na lista
@@ -113,5 +114,27 @@ public class CombustivelDAO extends InterfaceDAO {
         BancoDados.fecharConexao(con, stm, rs);
         return listaCombustivel;
     }
+    
+    public Combustivel obterDados(Combustivel comb){
+        Connection con = BancoDados.iniciarConexao();
+        PreparedStatement stm = null;
+        ResultSet rs = null;
 
+        try {
+            // pedido
+            stm = con.prepareStatement("SELECT * FROM combustivel WHERE descricao = ?");
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                comb.setDescricao(rs.getString("descricao"));
+                comb.setValor(rs.getFloat("valor"));
+                comb.setCod(rs.getInt("cod"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControleDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Não foi possível carregar");
+        }
+        BancoDados.fecharConexao(con, stm, rs);
+        
+        return comb;
+    }
 }

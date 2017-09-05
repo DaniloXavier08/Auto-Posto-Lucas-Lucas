@@ -10,7 +10,7 @@ package autoposto;
  */
 public class Teste {
     
-    private float relacao;
+    private final float relacao; // Exemplo de Encapsulamento private
     
     /**
      * Métoo construtor que define os valores dos combustiveis que serão computados.
@@ -26,7 +26,7 @@ public class Teste {
      * @return Combustível a ser abastecido
      */
     public String resultado(){
-        // Exemplo de Método
+        // Exemplo de Encapsulamento do tipo public
         String resultado;
         
         if (relacao >= 0.7){
