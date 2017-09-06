@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import autoposto.Combustivel;
+import autoposto.Etanol;
+import autoposto.Gasolina;
 import autoposto.Teste;
 import java.awt.Color;
 
@@ -131,7 +134,9 @@ public class TestePanel extends javax.swing.JPanel {
 
     private void bOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOkActionPerformed
         // Mostrar resultado do teste
-        Teste teste = new Teste(1.3, 2.5);
+        Combustivel etanol = new Etanol();
+        Combustivel gasolina = new Gasolina();
+        Teste teste = new Teste(etanol, gasolina);
         String resultado = teste.resultado();
         if(resultado.equals("#Erro")){
             resultado = "Valores Incorretos!! Tente novamente";

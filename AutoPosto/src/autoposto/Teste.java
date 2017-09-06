@@ -17,8 +17,8 @@ public class Teste {
      * @param alcool
      * @param gasolina
      */
-    public Teste (double alcool, double gasolina){
-        relacao = (float) (alcool / gasolina);
+    public Teste (Combustivel alcool, Combustivel gasolina){
+        relacao = (float) (alcool.getValor() / gasolina.getValor());
     }
     /**
      * Calcula qual combustível compensa abastecer entre Álcool e Gasolina.

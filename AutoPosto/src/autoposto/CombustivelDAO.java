@@ -115,6 +115,11 @@ public class CombustivelDAO extends InterfaceDAO {
         return listaCombustivel;
     }
     
+    /**
+     * Gera os dados de um determinado Combustível a partir do Banco de Dados
+     * @param comb
+     * @return 
+     */
     public Combustivel obterDados(Combustivel comb){
         Connection con = BancoDados.iniciarConexao();
         PreparedStatement stm = null;
@@ -123,6 +128,8 @@ public class CombustivelDAO extends InterfaceDAO {
         try {
             // pedido
             stm = con.prepareStatement("SELECT * FROM combustivel WHERE descricao = ?");
+            stm.setString(1, comb.getDescricao());
+            
             rs = stm.executeQuery();
             while (rs.next()) {
                 comb.setDescricao(rs.getString("descricao"));
@@ -134,7 +141,7 @@ public class CombustivelDAO extends InterfaceDAO {
             System.out.println("Não foi possível carregar");
         }
         BancoDados.fecharConexao(con, stm, rs);
-        
+
         return comb;
     }
 }
