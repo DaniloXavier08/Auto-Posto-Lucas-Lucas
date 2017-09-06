@@ -13,16 +13,21 @@ import java.awt.Color;
 
 /**
  * Panel responsável pela tela TestePanel
- * 
+ *
  */
 public class TestePanel extends javax.swing.JPanel {
     // exemplo de herança onde TestePanel herda características da classe javax.swing.JPanel
-    
+
     private FramePrincipal frame;
-    
+    Combustivel etanol = new Etanol();
+    Combustivel gasolina = new Gasolina();
+
     public TestePanel(FramePrincipal frame) {
         initComponents();
         this.frame = frame;
+        
+        tValorEtanol.setText(Float.toString(etanol.getValor()));
+        tValorGasolina.setText(Float.toString(gasolina.getValor()));
     }
 
     /**
@@ -126,23 +131,21 @@ public class TestePanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         // Voltar tela de opções
-        frame.setPanel(new OptionsPanel(frame));        
+        frame.setPanel(new OptionsPanel(frame));
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void bOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOkActionPerformed
         // Mostrar resultado do teste
-        Combustivel etanol = new Etanol();
-        Combustivel gasolina = new Gasolina();
         Teste teste = new Teste(etanol, gasolina);
         String resultado = teste.resultado();
-        if(resultado.equals("#Erro")){
+        if (resultado.equals("#Erro")) {
             resultado = "Valores Incorretos!! Tente novamente";
             lResultado.setForeground(Color.red);
-        }else {
-            resultado = lResultado.getText() + " Combustível a ser abastecido: " +resultado;
+        } else {
+            resultado = lResultado.getText() + " Combustível a ser abastecido: " + resultado;
         }
         lResultado.setText(resultado);
     }//GEN-LAST:event_bOkActionPerformed
