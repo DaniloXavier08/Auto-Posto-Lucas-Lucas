@@ -17,7 +17,7 @@ public class Bomba {
         this.cod = cod;
         this.descricao = desc;
         this.status = status;
-        this.horario = horario;
+        this.horario = hora;
     }
     // Getters e Setters
 

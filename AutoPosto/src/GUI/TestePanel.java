@@ -18,7 +18,7 @@ import java.awt.Color;
 public class TestePanel extends javax.swing.JPanel {
     // exemplo de herança onde TestePanel herda características da classe javax.swing.JPanel
 
-    private FramePrincipal frame;
+    private final FramePrincipal frame;
     Combustivel etanol = new Etanol();
     Combustivel gasolina = new Gasolina();
 
@@ -26,6 +26,10 @@ public class TestePanel extends javax.swing.JPanel {
         initComponents();
         this.frame = frame;
         
+        carregarValores();
+    }
+    
+    private void carregarValores(){
         tValorEtanol.setText(Float.toString(etanol.getValor()));
         tValorGasolina.setText(Float.toString(gasolina.getValor()));
     }
@@ -46,7 +50,7 @@ public class TestePanel extends javax.swing.JPanel {
         lCifrao2 = new javax.swing.JLabel();
         lGasolina = new javax.swing.JLabel();
         lResultado = new javax.swing.JLabel();
-        bOk = new javax.swing.JToggleButton();
+        bTestar = new javax.swing.JToggleButton();
         bVoltar = new javax.swing.JToggleButton();
 
         lEtanol.setText("ETANOL");
@@ -64,11 +68,12 @@ public class TestePanel extends javax.swing.JPanel {
         lGasolina.setText("GASOLINA");
 
         lResultado.setText("RESULTADO:");
+        lResultado.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        bOk.setText("OK");
-        bOk.addActionListener(new java.awt.event.ActionListener() {
+        bTestar.setText("Testar");
+        bTestar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bOkActionPerformed(evt);
+                bTestarActionPerformed(evt);
             }
         });
 
@@ -87,9 +92,13 @@ public class TestePanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(bVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bTestar)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 99, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lResultado)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lGasolina)
                                 .addGap(21, 21, 21)
@@ -103,11 +112,9 @@ public class TestePanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(tValorEtanol, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(113, 113, 113))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(bVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bOk)
-                        .addContainerGap())))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lResultado)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,11 +129,11 @@ public class TestePanel extends javax.swing.JPanel {
                     .addComponent(lGasolina)
                     .addComponent(lCifrao2)
                     .addComponent(tValorGasolina))
-                .addGap(42, 42, 42)
+                .addGap(36, 36, 36)
                 .addComponent(lResultado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bOk)
+                    .addComponent(bTestar)
                     .addComponent(bVoltar))
                 .addContainerGap())
         );
@@ -137,7 +144,7 @@ public class TestePanel extends javax.swing.JPanel {
         frame.setPanel(new OptionsPanel(frame));
     }//GEN-LAST:event_bVoltarActionPerformed
 
-    private void bOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOkActionPerformed
+    private void bTestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTestarActionPerformed
         // Mostrar resultado do teste
         Teste teste = new Teste(etanol, gasolina);
         String resultado = teste.resultado();
@@ -148,11 +155,11 @@ public class TestePanel extends javax.swing.JPanel {
             resultado = lResultado.getText() + " Combustível a ser abastecido: " + resultado;
         }
         lResultado.setText(resultado);
-    }//GEN-LAST:event_bOkActionPerformed
+    }//GEN-LAST:event_bTestarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton bOk;
+    private javax.swing.JToggleButton bTestar;
     private javax.swing.JToggleButton bVoltar;
     private javax.swing.JLabel lCifrao1;
     private javax.swing.JLabel lCifrao2;

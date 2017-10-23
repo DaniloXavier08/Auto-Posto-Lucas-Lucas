@@ -21,7 +21,7 @@ public class AutoPosto {
         // Inicia Tela Inicial.
         FramePrincipal fp = new FramePrincipal();
         fp.setVisible(true);
-        
+                
     }
         
 }

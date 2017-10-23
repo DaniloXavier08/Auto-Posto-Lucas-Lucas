@@ -5,6 +5,11 @@
  */
 package GUI;
 
+import autoposto.Bomba;
+import autoposto.BombaDAO;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author danilo
@@ -20,6 +25,24 @@ public class ControlePanel extends javax.swing.JPanel {
     public ControlePanel (FramePrincipal frame){
         initComponents();
         this.frame = frame;
+        carregarComboBox();
+    }
+
+    /**
+     * Gera uma array para preencher o ComboBox com as opções de Bombas
+     * que existem.
+     */
+    public void carregarComboBox(){
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) comboBoxCombustiveis.getModel();
+
+        BombaDAO dao = new BombaDAO();
+        List listaBombas = dao.obterLista();
+
+        Bomba bomb;
+        for (int i = 0; i < listaBombas.size(); i++) {
+            bomb = (Bomba) listaBombas.get(i);
+            modelo.addElement((Object) bomb.getDescricao());
+        }
     }
 
     /**
@@ -54,6 +77,11 @@ public class ControlePanel extends javax.swing.JPanel {
         lBomba.setText("Bomba:");
 
         bOk.setText("OK");
+        bOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bOkActionPerformed(evt);
+            }
+        });
 
         bVoltar.setText("Voltar");
         bVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -188,6 +216,18 @@ public class ControlePanel extends javax.swing.JPanel {
         // Voltar tela de opções
         frame.setPanel(new OptionsPanel(frame));
     }//GEN-LAST:event_bVoltarActionPerformed
+
+    private void bOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOkActionPerformed
+        /* ControleDAO dao = new ControleDAO
+        Bomba bomb = new Bomba('valores');
+        cod SERIAL, default
+        bomba int, Combobox.index
+        combustivel int, getRadioBox
+        horario time, 
+        
+        
+        */
+    }//GEN-LAST:event_bOkActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton bOk;
