@@ -1,6 +1,8 @@
 
 package autoposto;
 
+import Prototype.Combustivel;
+
 /**
  * @author danilo
  * 

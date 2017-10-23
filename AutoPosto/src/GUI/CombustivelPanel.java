@@ -1,10 +1,10 @@
 
 package GUI;
 
-import autoposto.Combustivel;
-import autoposto.Diesel;
-import autoposto.Etanol;
-import autoposto.Gasolina;
+import Prototype.Combustivel;
+import Prototype.Diesel;
+import Prototype.Etanol;
+import Prototype.Gasolina;
 import javax.swing.JOptionPane;
 
 public class CombustivelPanel extends javax.swing.JPanel {

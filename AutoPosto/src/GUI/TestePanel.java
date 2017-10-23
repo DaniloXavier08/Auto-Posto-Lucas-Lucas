@@ -5,9 +5,10 @@
  */
 package GUI;
 
-import autoposto.Combustivel;
-import autoposto.Etanol;
-import autoposto.Gasolina;
+import Prototype.Combustivel;
+import Prototype.CombustivelCache;
+import Prototype.Etanol;
+import Prototype.Gasolina;
 import autoposto.Teste;
 import java.awt.Color;
 
@@ -19,12 +20,16 @@ public class TestePanel extends javax.swing.JPanel {
     // exemplo de herança onde TestePanel herda características da classe javax.swing.JPanel
 
     private final FramePrincipal frame;
-    Combustivel etanol = new Etanol();
-    Combustivel gasolina = new Gasolina();
+    private Combustivel etanol;
+    private Combustivel gasolina;
 
     public TestePanel(FramePrincipal frame) {
         initComponents();
         this.frame = frame;
+        
+        CombustivelCache.loadCache();
+        etanol = (Combustivel) CombustivelCache.getCombust(2);
+        gasolina = (Combustivel) CombustivelCache.getCombust(3);
         
         carregarValores();
     }

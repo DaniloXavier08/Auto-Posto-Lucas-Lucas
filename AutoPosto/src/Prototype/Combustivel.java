@@ -1,15 +1,32 @@
 
-package autoposto;
+package Prototype;
 
 /**
  * Este é um exemplo de Classe
  */
-public class Combustivel {
+public abstract class Combustivel {
     
     // Variaveis
     protected int cod; 
     protected String descricao; // nome do combustivel
     protected float valor;
+    
+    /*
+     * Método clone conforme padrão de projeto 
+     * Prototype.
+     */
+    public Object clone() {
+      Object clone = null;
+      
+      try {
+         clone = super.clone();
+         
+      } catch (CloneNotSupportedException e) {
+         e.printStackTrace();
+      }
+      
+      return clone;
+   }
     
     // Exemplo de Métodos
     public int getCod() {

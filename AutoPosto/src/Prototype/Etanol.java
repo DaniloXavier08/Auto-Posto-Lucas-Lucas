@@ -1,14 +1,14 @@
 
-package autoposto;
+package Prototype;
+
+import autoposto.CombustivelDAO;
 
 public class Etanol extends Combustivel{
     
     public Etanol(){
         this.descricao = "Etanol";
         
-        CombustivelDAO dao = new CombustivelDAO();
-        Combustivel comb;
-        comb = dao.obterDados(this);
+        Combustivel comb = new CombustivelDAO().obterDados(this);
         
         this.cod = comb.getCod();
         this.valor = comb.getValor();
