@@ -20,9 +20,10 @@ public class CombustivelPanel extends javax.swing.JPanel {
         initComponents();
         this.frame = frame;
         
-        diesel = new Diesel();
-        etanol = new Etanol();
-        gasolina = new Gasolina();
+        CombustivelCache.loadCache();
+        diesel = (Combustivel) CombustivelCache.getCombust(1);
+        etanol = (Combustivel) CombustivelCache.getCombust(2);
+        gasolina = (Combustivel) CombustivelCache.getCombust(3);
         
         carregarValores();
     }
