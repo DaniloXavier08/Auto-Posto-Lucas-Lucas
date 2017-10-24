@@ -1,35 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+ * O Padrão de Projeto Prototype tem como objetivo clonar elementos definidos no início
+ * do código, tornando menos oneroso a intanciação. Se cria um clone do elemento da classe
+ * ao invés de se criar uma nova.
+ */ 
 package Prototype;
 
 import java.util.Hashtable;
 
 /**
- *
- * @author a162007X
+ * Classe responsável por armazenar e gerar as instâncias da Classe Combustível.
+ * @author Danilo
  */
 public class CombustivelCache {
     private static Hashtable<Integer, Combustivel> combustMap  = new Hashtable<>();
 
-   public static Combustivel getCombust(int combustId) {
+    /**
+     * Retorna um clone do Combustível desejado conforme o id solicitado.
+     * @param combustId
+     */
+    public static Combustivel getCombust(int combustId) {
       Combustivel cachedCombustivel = combustMap.get(combustId);
-      return (Combustivel) cachedCombustivel.clone();
-   }
+      return (Combustivel) cachedCombustivel.clone(); 
+    }
 
-   // for each shape run database query and create shape
-   // shapeMap.put(shapeKey, shape);
-   // for example, we are adding three shapes
-   
+   /** 
+    * Carrega o hashtable de combustível, disponibilzando os elementos de Combustível.
+    */
    public static void loadCache() {
+       // Para cada Instancia de Combustível será adicionado um elemento
+       // no Hashtable no modelo combustMap.put(combustId, combustivel)
+       
+       // 01 - Diesel.
       Diesel diesel = new Diesel();
       combustMap.put(diesel.getCod(), diesel);
 
+       // 02 - Etanol.
       Etanol etanol = new Etanol();
       combustMap.put(etanol.getCod(), etanol);
       
+       // 03 - Gasolina.
       Gasolina gasolina = new Gasolina();
       combustMap.put(gasolina.getCod(), gasolina);
    }
