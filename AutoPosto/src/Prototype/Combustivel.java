@@ -1,11 +1,12 @@
 package Prototype;
 
 /**
- * Este é um exemplo de Classe
+ * Classe abstrata para a implementação do padrão de
+ * Projeto Prototype.
  */
 public abstract class Combustivel implements Cloneable{
 
-    // Variaveis
+    // Variavéis
     protected int cod;
     protected String descricao; // nome do combustivel
     protected float valor;
