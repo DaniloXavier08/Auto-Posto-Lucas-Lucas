@@ -27,7 +27,8 @@ public class TestePanel extends javax.swing.JPanel {
         initComponents();
         this.frame = frame;
         
-        CombustivelCache.loadCache();
+        CombustivelCache cc = new CombustivelCache();
+        cc.loadCache();
         etanol = (Combustivel) CombustivelCache.getCombust(2);
         gasolina = (Combustivel) CombustivelCache.getCombust(3);
         
