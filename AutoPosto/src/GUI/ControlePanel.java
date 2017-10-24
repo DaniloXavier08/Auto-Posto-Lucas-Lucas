@@ -5,10 +5,13 @@
  */
 package GUI;
 
+import Prototype.*;
 import autoposto.Bomba;
 import autoposto.BombaDAO;
+import autoposto.*;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,15 +20,13 @@ import javax.swing.DefaultComboBoxModel;
 public class ControlePanel extends javax.swing.JPanel {
 
     private FramePrincipal frame;
-    
-    public ControlePanel() {
-        initComponents();
-    }
+    private Combustivel etanol, diesel, gasolina;
     
     public ControlePanel (FramePrincipal frame){
         initComponents();
         this.frame = frame;
         carregarComboBox();
+        carregarPrecos();
     }
 
     /**
@@ -43,6 +44,23 @@ public class ControlePanel extends javax.swing.JPanel {
             bomb = (Bomba) listaBombas.get(i);
             modelo.addElement((Object) bomb.getDescricao());
         }
+    }
+    
+    public void carregarPrecos(){
+        CombustivelCache.loadCache();
+        diesel = (Combustivel) CombustivelCache.getCombust(1);
+        etanol = (Combustivel) CombustivelCache.getCombust(2);
+        gasolina = (Combustivel) CombustivelCache.getCombust(3);
+        
+        tValorDiesel.setText(Float.toString(diesel.getValor()));
+        tValorEtanol.setText(Float.toString(etanol.getValor()));
+        tValorGasolina.setText(Float.toString(gasolina.getValor()));
+    }
+    
+    private boolean insertBancoDados(int bomba, int combustivel, float valor){
+        ControleDAO dao = new ControleDAO(new Controle(bomba,combustivel, valor));
+        dao.adicionar();
+        return true;
     }
 
     /**
@@ -218,15 +236,33 @@ public class ControlePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void bOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOkActionPerformed
-        /* ControleDAO dao = new ControleDAO
-        Bomba bomb = new Bomba('valores');
-        cod SERIAL, default
-        bomba int, Combobox.index
-        combustivel int, getRadioBox
-        horario time, 
         
+        boolean inserido = false;
+        if (radioDiesel.isSelected()){
+            inserido = insertBancoDados(
+                    comboBoxCombustiveis.getSelectedIndex()+1,
+                    1,
+                    diesel.getValor() * Float.parseFloat(tValorDiesel.getText())
+            );
+        }
+        if (radioEtanol.isSelected()){
+            inserido = insertBancoDados(
+                    comboBoxCombustiveis.getSelectedIndex() +1,
+                    2,
+                    etanol.getValor() * Float.parseFloat(tValorEtanol.getText())
+            );
+        }
+        if (radioGasolina.isSelected()){
+            inserido = insertBancoDados(comboBoxCombustiveis.getSelectedIndex() +1,
+                    3,
+                    gasolina.getValor() * Float.parseFloat(tValorGasolina.getText())
+            );
+        }
         
-        */
+        if(inserido)
+            JOptionPane.showMessageDialog(null, "Inserido com Sucesso!!");
+        else
+            JOptionPane.showMessageDialog(null, "Não foi possível inserir.");
     }//GEN-LAST:event_bOkActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

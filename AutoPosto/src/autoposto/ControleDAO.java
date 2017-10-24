@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class ControleDAO extends InterfaceDAO{
     
-    public Controle controle;
+    private Controle controle;
     
     /**
      *  Método construtor da classe.
@@ -35,11 +35,11 @@ public class ControleDAO extends InterfaceDAO{
         PreparedStatement stm = null;
         try {
             // Pedido
-            stm = con.prepareStatement("INSERT INTO controle VALUES (default,?,?,?)");
+            stm = con.prepareStatement("INSERT INTO controle VALUES (default,?,?,null,?)");
                        
             stm.setInt(1, controle.getBomba());
             stm.setInt(2, controle.getCombustivel());
-            stm.setDate(3, controle.getHorario());
+            stm.setFloat(3, controle.getValor());
             
             stm.executeUpdate();
 
@@ -80,19 +80,19 @@ public class ControleDAO extends InterfaceDAO{
 
         // Lista de objetos Controle
         List<Controle> listaControle = new ArrayList<>();
-        controle = new Controle();
+        controle = new Controle(0,0,0,null,0);
         
         try {
             // pedido
             stm = con.prepareStatement("SELECT * FROM controle ORDER BY cod");
             rs = stm.executeQuery();
             while (rs.next()) {
-                controle = new Controle();
-                
-                controle.setCod(rs.getInt("cod"));
-                controle.setBomba(rs.getInt("bomba"));
-                controle.setCombustivel(rs.getInt("combustivel"));
-                controle.setHorario(rs.getDate("horario"));
+                controle = new Controle(
+                    rs.getInt("cod"),
+                    rs.getInt("bomba"),
+                    rs.getInt("combustivel"),
+                    rs.getDate("horario"),
+                    rs.getFloat("valor"));
                 
                 // Adiciona elemento na lista
                 listaControle.add(controle);
@@ -101,7 +101,7 @@ public class ControleDAO extends InterfaceDAO{
             Logger.getLogger(ControleDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             BancoDados.fecharConexao(con, stm, rs);
-            return listaControle;
         }
+        return listaControle;
     }
 }

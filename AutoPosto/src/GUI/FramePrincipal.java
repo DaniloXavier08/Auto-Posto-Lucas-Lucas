@@ -1,5 +1,6 @@
 package GUI;
 
+import Prototype.CombustivelCache;
 import javax.swing.JPanel;
 
 /**
@@ -11,6 +12,7 @@ public class FramePrincipal extends javax.swing.JFrame {
   
     public FramePrincipal() {
         initComponents();
+        CombustivelCache.loadCache();
     }
     /**
      * Define o JPanel a ser mostrado atavés da Frame Principal.

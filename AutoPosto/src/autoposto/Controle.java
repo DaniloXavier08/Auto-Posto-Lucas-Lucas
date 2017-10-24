@@ -17,7 +17,22 @@ public class Controle {
     private int bomba;
     private int combustivel;
     private Date horario;
-       
+    private float valor;
+
+    public Controle(int bomba, int combustivel, float valor) {
+        this.bomba = bomba;
+        this.combustivel = combustivel;
+        this.valor = valor;
+    }
+    
+    public Controle(int cod, int bomba, int combustivel, Date horario, float valor) {
+        this.cod = cod;
+        this.bomba = bomba;
+        this.combustivel = combustivel;
+        this.horario = horario;
+        this.valor = valor;
+    }
+    
     // Getter e Setter
 
     public int getCod() {
@@ -52,5 +67,11 @@ public class Controle {
         this.horario = horario;
     }
     
-    
+     public float getValor() {
+        return valor;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
 }

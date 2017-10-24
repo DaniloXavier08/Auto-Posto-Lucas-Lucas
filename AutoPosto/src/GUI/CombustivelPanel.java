@@ -2,9 +2,7 @@
 package GUI;
 
 import Prototype.Combustivel;
-import Prototype.Diesel;
-import Prototype.Etanol;
-import Prototype.Gasolina;
+import Prototype.CombustivelCache;
 import javax.swing.JOptionPane;
 
 public class CombustivelPanel extends javax.swing.JPanel {
