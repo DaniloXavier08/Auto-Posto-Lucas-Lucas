@@ -1,8 +1,8 @@
 
 package GUI;
 
-import Prototype.Combustivel;
-import Prototype.CombustivelCache;
+import Prototype.*;
+import autoposto.CombustivelDAO;
 import javax.swing.JOptionPane;
 
 public class CombustivelPanel extends javax.swing.JPanel {
@@ -18,7 +18,6 @@ public class CombustivelPanel extends javax.swing.JPanel {
         initComponents();
         this.frame = frame;
         
-        CombustivelCache.loadCache();
         diesel = (Combustivel) CombustivelCache.getCombust(1);
         etanol = (Combustivel) CombustivelCache.getCombust(2);
         gasolina = (Combustivel) CombustivelCache.getCombust(3);
@@ -175,18 +174,33 @@ public class CombustivelPanel extends javax.swing.JPanel {
     private void bDieselActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDieselActionPerformed
         // Abre o JOption para alterar o valor do Diesel (index = 1)
         alterarValor(diesel);
+        
+        CombustivelDAO dao = new CombustivelDAO();
+        dao.alterar(diesel);
+        
+        CombustivelCache.loadCache();
         carregarValores();
     }//GEN-LAST:event_bDieselActionPerformed
 
     private void bEtanolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEtanolActionPerformed
         // Abre o JOption para alterar o valor do Etanol (index = 2)
         alterarValor(etanol);
+        
+        CombustivelDAO dao = new CombustivelDAO();
+        dao.alterar(etanol);
+        
+        CombustivelCache.loadCache();
         carregarValores();
     }//GEN-LAST:event_bEtanolActionPerformed
 
     private void bGasolinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGasolinaActionPerformed
         // Abre o JOption para alterar o valor da Gasolina (index = 3)
         alterarValor(gasolina);
+        
+        CombustivelDAO dao = new CombustivelDAO();
+        dao.alterar(gasolina);
+        
+        CombustivelCache.loadCache();
         carregarValores();
     }//GEN-LAST:event_bGasolinaActionPerformed
 

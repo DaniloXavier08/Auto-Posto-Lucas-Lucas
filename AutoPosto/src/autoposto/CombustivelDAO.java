@@ -50,8 +50,9 @@ public class CombustivelDAO extends InterfaceDAO {
     /**
      * Altera dados no Banco de Dados através de um SQL
      * 
+     * @param combustivel
     **/
-    public void alterar(){
+    public void alterar(Combustivel combustivel){
         Connection con = BancoDados.iniciarConexao();
         PreparedStatement stm = null;
         try {

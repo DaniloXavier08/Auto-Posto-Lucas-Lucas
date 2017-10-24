@@ -47,7 +47,6 @@ public class ControlePanel extends javax.swing.JPanel {
     }
     
     public void carregarPrecos(){
-        CombustivelCache.loadCache();
         diesel = (Combustivel) CombustivelCache.getCombust(1);
         etanol = (Combustivel) CombustivelCache.getCombust(2);
         gasolina = (Combustivel) CombustivelCache.getCombust(3);
